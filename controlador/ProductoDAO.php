@@ -20,6 +20,6 @@ class ProductoDAO{
     }
 
     public function agregarProducto($params){
-        # code...
+        
     }
 }
