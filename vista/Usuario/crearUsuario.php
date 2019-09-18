@@ -11,6 +11,8 @@
            echo json_encode(array(['response'=>0, 'message'=>"Correo duplicado"]));
            exit();
         }
+
+        echo "jsahgdsaljd";
         $usuario = UsuarioDAO::getInstance()->comprobarUsuarioPorUsername($user);
         if($usuario){
             echo json_encode(array('response'=>0, 'message'=>"Usuario duplicado"));
