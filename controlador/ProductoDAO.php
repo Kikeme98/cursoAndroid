@@ -20,6 +20,17 @@ class ProductoDAO{
     }
 
     public function agregarProducto($params){
-        
+        try {
+            $query = $this->pdo->prepare("INSERT INTO producto(nombre, precio, stock, descripcion, idtienda) VALUES(?,?,?,?);");
+            $resultado = $query->execute(array($params['nombre'], $params['precio'], $params['stock'], $params['descripcion'], $params['idtienda']));
+            if($resultado){
+                $id = $this->pdo->lastInsertId();
+                return $id;
+            }else{
+                return 0;
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 }
